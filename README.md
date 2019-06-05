@@ -6,6 +6,8 @@ Using React + Redux + Ant Design to implement Taiwan High Speed Rail Search.
 
 [DEMO](https://taiwan-high-speed-rail-search.herokuapp.com/)
 
+![image](https://github.com/bestAlvin/Taiwan-High-Speed-Rail-Search/blob/master/img/demo.gif)
+
 Features:
 1. Search trains of specific date
 2. Search available seats for today
