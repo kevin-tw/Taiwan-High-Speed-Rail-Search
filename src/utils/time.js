@@ -11,4 +11,5 @@ const getNowDate = formatStr => formatStr ? moment().format(formatStr) : moment(
 
 export {
   diffTime,
-  getNowDate,}
+  getNowDate,
+}
