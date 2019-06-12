@@ -6,7 +6,7 @@ export const FETCH_SUCCESS = 'availableSeats/FETCH_SUCCESS'
 export const FETCH_FAILURE = 'availableSeats/FETCH_FAILURE'
 
 // Action Creators
-const fetchRequest = () => ({
+export const fetchRequest = () => ({
   type: FETCH_REQUEST,
 })
 
