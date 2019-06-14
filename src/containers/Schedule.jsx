@@ -101,7 +101,7 @@ const Schedule = ({ dispatch, stations, isFetching, ODFare, dailyTimetable }) =>
     departureTime: train.OriginStopTime.DepartureTime,
     arrivalTime: train.DestinationStopTime.ArrivalTime,
     travelTime: diffTime(train.DestinationStopTime.ArrivalTime, train.OriginStopTime.DepartureTime, 'HH:mm'),
-    fare: `$${ODFare[0].Fares[1].Price}`
+    fare: `$${ODFare[0].Fares.filter(fare => fare.TicketType === '標準')[0].Price}`
   })).sort((a, b) => diffTime(a.departureTime, b.departureTime))
 
   return (
