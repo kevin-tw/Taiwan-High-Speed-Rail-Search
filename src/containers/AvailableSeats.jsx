@@ -110,6 +110,9 @@ const AvailableSeats = ({
   let dataSource = []
 
   if (availableSeats.length) {
+    const standardPrice = ODFare[0].Fares.filter(fare => fare.TicketType === '標準')[0].Price
+    const businessPrice = ODFare[0].Fares.filter(fare => fare.TicketType === '商務')[0].Price
+
     timeTable = dailyTimetable.reduce((trains, train) => {
       trains[train.DailyTrainInfo.TrainNo] = {
         trainNumber: train.DailyTrainInfo.TrainNo,
@@ -120,6 +123,7 @@ const AvailableSeats = ({
 
       return trains
     }, {})
+
 
     dataSource = availableSeats[0].AvailableSeats.filter(train =>
           diffTime(getNowDate('HH:mm'), train.DepartureTime) < 0).reduce((list, train) => {
@@ -141,13 +145,13 @@ const AvailableSeats = ({
               if (standardSeatStatus === 'Available') {
                 color = 'geekblue'
                 seatTags.push({ text: constants.STANDARD_SEAT, color, })
-                fareTags.push({ text: `$${ODFare[0].Fares[1].Price}`, color })
+                fareTags.push({ text: `$${standardPrice}`, color })
               }
 
               if (businessSeatStatus === 'Available') {
                 color = 'volcano'
                 seatTags.push({ text: constants.BUSINESS_SEAT, color })
-                fareTags.push({ text: `$${ODFare[0].Fares[2].Price}`, color })
+                fareTags.push({ text: `$${businessPrice}`, color })
               }
 
               if (seatTags.length) {
